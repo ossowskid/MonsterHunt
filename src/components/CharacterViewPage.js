@@ -147,6 +147,9 @@ export const CharacterViewPage = () => {
     }, []);
     return <CircularProgressWithLabel value={progress} />;
   };
+  if (!user || !bonusStats) {
+    return <p>Loading...</p>;
+  }
   return (
     <>
       <Wrapper>
@@ -204,12 +207,8 @@ export const CharacterViewPage = () => {
           <CharacterAvatarBox>{checkRaceToSetAvatar()}</CharacterAvatarBox>
           <CharacterNameAndStatsBox>
             <div className="player__information">
-              {/* <p> */}
               <h2>{user?.name}</h2>
-              {/* </p> */}
-              {/* <p> */}
               <h4>{user?.race}</h4>
-              {/* </p> */}
             </div>
             <div>
               <p>
